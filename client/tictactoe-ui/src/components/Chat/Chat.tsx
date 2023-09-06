@@ -1,10 +1,10 @@
-import { useState, useCallback, useEffect } from "react";
-import useWebSocket, { ReadyState } from "react-use-websocket";
+import { useState, useEffect } from "react";
+import useWebSocket from "react-use-websocket";
 
 const Chat = () => {
   //Public API that will echo messages sent to it back to the client
-  const [socketUrl, setSocketUrl] = useState("ws://localhost:8000/test");
-  const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
+  const [socketUrl] = useState("ws://localhost:8000/test");
+  const { sendMessage, lastMessage } = useWebSocket(socketUrl);
   const [message, setMessage] = useState("");
 
   useEffect(() => {

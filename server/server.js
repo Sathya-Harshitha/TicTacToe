@@ -2,8 +2,9 @@ import express from "express";
 import expressWs from "express-ws";
 
 const app = express();
-
+const PORT = process.env.PORT || 8000;
 const wsInstance = expressWs(app);
+
 
 app.get("/test", (req, res) => {
   res.send("Testing");
@@ -19,7 +20,7 @@ app.ws("/test", (ws, req) => {
   });
 });
 
-app.listen(8000, () => console.log("Example app is listening on port 3000."));
+app.listen(PORT, () => console.log(`WebSocket server is running on port ${PORT}`));
 
 // let webSocket = new WebSocket('ws://localhost:8000/test');
 // webSocket.onmessage = function(e) { console.log("Message ", e.data)}
